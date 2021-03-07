@@ -1,7 +1,12 @@
-#ifndef _PROG_SYSCALLS_H
-#define _PROG_SYSCALLS_H
+#ifndef _SYSCALLS_H
+#define _SYSCALLS_H
 
-uint32_t kernel_syscall(uint32_t srvnum, uint32_t a0, uint32_t a1, uint32_t a2);
-void serial_write(const char *s);
+enum {
+    SYSCALL_SERIAL_NWRITE = 0,
+    SYSCALL_SERIAL_READ,
+    SYSCALL_BTN_STATES,
+    SYSCALL_SWTCH_STATES,
+    SYSCALL_POT_VALUE,
+};
 
-#endif /* _PROG_SYSCALLS_H */
+#endif /* _SYSCALLS_H */

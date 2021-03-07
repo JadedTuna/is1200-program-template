@@ -1,4 +1,5 @@
 .global kernel_syscall
+# FIXME: clean up this function
 kernel_syscall:
 	# disable $at
 	.set noat
@@ -29,6 +30,10 @@ kernel_syscall:
 	sw	$t9, 68($sp)
 
 	syscall
+	# This nop shouldn't be needed
+	# But somehow, sometimes, it is
+	# I don't know why. At this point I don't care
+	nop
 
 	lw	$t9, 68($sp)
 	lw	$t8, 64($sp)
@@ -47,7 +52,8 @@ kernel_syscall:
 	lw	$a0, 16($sp)
 
 	lw	$v1, 12($sp)
-	lw	$v0,  8($sp)
+	# Dirty, but should work for now
+	# lw	$v0,  8($sp)
 
 	lw	$at,  4($sp)
 	lw	$ra,  0($sp)

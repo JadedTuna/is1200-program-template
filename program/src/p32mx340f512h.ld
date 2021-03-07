@@ -37,7 +37,8 @@ MEMORY
   /*kseg0_program_mem    (rx)  : ORIGIN = 0x9D001000, LENGTH = 0x7E000*/
 
   /* Should correspond to BMXDUPBA */
-  kseg0_program_mem    (rx)  : ORIGIN = 0x7F007800, LENGTH = 0x800
+  /*kseg0_program_mem    (rx)  : ORIGIN = 0x7F007800, LENGTH = 0x800*/
+  kseg0_program_mem    (rx)  : ORIGIN = 0x7F005000, LENGTH = 0x3000
   kseg0_eeprom_mem           : ORIGIN = 0x00000000, LENGTH = 0x1000
   /*kseg0_eeprom_mem           : ORIGIN = 0x9D07F000, LENGTH = 0x1000*/
   kseg0_boot_mem             : ORIGIN = 0x9FC00490, LENGTH = 0
@@ -50,7 +51,8 @@ MEMORY
   /*kseg1_data_mem       (w!x) : ORIGIN = 0xA0000000, LENGTH = 0x8000*/
   /*kseg1_data_mem       (w!x) : ORIGIN = 0xA0000000, LENGTH = 0x6800*/
   /* Should correspond to BMXDUDBA */
-  kseg1_data_mem       (w!x) : ORIGIN = 0x7F006800, LENGTH = 0x1000
+  /*kseg1_data_mem       (w!x) : ORIGIN = 0x7F006800, LENGTH = 0x1000*/
+  kseg1_data_mem       (w!x) : ORIGIN = 0x7F002000, LENGTH = 0x3000
   sfrs                       : ORIGIN = 0xBF800000, LENGTH = 0x100000
   configsfrs                 : ORIGIN = 0xBFC02FF0, LENGTH = 0x10
 }
