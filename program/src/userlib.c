@@ -22,6 +22,14 @@ void serial_nwrite(const char *s, size_t size) {
     kernel_syscall(SYSCALL_SERIAL_NWRITE, (uint32_t)s, size, 0);
 }
 
+void serial_putc(char c) { kernel_syscall(SYSCALL_SERIAL_PUTC, c, 0, 0); }
+
+char serial_getc(void) { return kernel_syscall(SYSCALL_SERIAL_GETC, 0, 0, 0); }
+
+size_t serial_readline(char *buffer, size_t size) {
+    return kernel_syscall(SYSCALL_SERIAL_READLINE, (uint32_t)buffer, size, 0);
+}
+
 uint8_t io_buttons(void) { return kernel_syscall(SYSCALL_BTN_STATES, 0, 0, 0); }
 
 uint8_t io_switches(void) { return kernel_syscall(SYSCALL_SWTCH_STATES, 0, 0, 0); }
